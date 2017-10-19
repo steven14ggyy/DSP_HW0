@@ -70,9 +70,9 @@ The project is related to two methods of image processing: flipping and rotation
 	Finally, convert the data type from double to uint8, and return a processed image:
 	```Matlab
 	% save R_flip, G_flip, B_flip to output image
-    I_flip(:,:,1) = uint8(R_flip);
-    I_flip(:,:,2) = uint8(G_flip);
-    I_flip(:,:,3) = uint8(B_flip);
+    	I_flip(:,:,1) = uint8(R_flip);
+   		I_flip(:,:,2) = uint8(G_flip);
+   		I_flip(:,:,3) = uint8(B_flip);
 	```
 	##### Results
 	

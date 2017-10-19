@@ -42,11 +42,11 @@ The project is related to two methods of image processing: flipping and rotation
 	```Matlab
 	%Type 0:
 	for h = 1 : height
-       for w = 1 : width 
+       	for w = 1 : width 
             R_flip(h, w) = R(h,width-w+1);
             G_flip(h, w) = G(h,width-w+1);
             B_flip(h, w) = B(h,width-w+1);
-       end
+       	end
     end
 	
 	%Type 1:
@@ -70,9 +70,9 @@ The project is related to two methods of image processing: flipping and rotation
 	Finally, convert the data type from double to uint8, and return a processed image:
 	```Matlab
 	% save R_flip, G_flip, B_flip to output image
-    	I_flip(:,:,1) = uint8(R_flip);
-   		I_flip(:,:,2) = uint8(G_flip);
-   		I_flip(:,:,3) = uint8(B_flip);
+   	I_flip(:,:,1) = uint8(R_flip);
+	I_flip(:,:,2) = uint8(G_flip);
+	I_flip(:,:,3) = uint8(B_flip);
 	```
 	##### Results
 	

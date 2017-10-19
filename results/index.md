@@ -67,7 +67,13 @@ The project is related to two methods of image processing: flipping and rotation
        	end
     end
 	```
-	
+	Finally, convert the data type from double to uint8, and return a processed image:
+	```Matlab
+	% save R_flip, G_flip, B_flip to output image
+    I_flip(:,:,1) = uint8(R_flip);
+    I_flip(:,:,2) = uint8(G_flip);
+    I_flip(:,:,3) = uint8(B_flip);
+	```
 	##### Results
 	
 	type0 | type1| type2 
@@ -75,9 +81,7 @@ The project is related to two methods of image processing: flipping and rotation
 	<img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/image/image.jpg width="100%"/> | <img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/DSC_0531/DSC_0531.JPG width="100%"/> | <img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/DSC_1182/DSC_1182.JPG width="100%"/>
 	<img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/image/flipping_image.jpg width="100%"/> | <img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/DSC_0531/flipping_image.jpg width="100%"/> | <img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/DSC_1182/flipping_image.jpg width="100%"/>
 	
-	<img src="placeholder.jpg"  width="100%"/>
-	<img src="placeholder.jpg" width="100%"/>
-	<img src="placeholder.jpg" width="100%"/>
+	
 
 
 

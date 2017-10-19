@@ -1,5 +1,5 @@
-close;
-clear;
+close all;
+clear all;
 clc;
 
 %% read image
@@ -15,19 +15,26 @@ I2 = grey_scale(I);
 
 %% ----- homework lab ----- %%
 % flip function
-%%%I3 = flip(I,0);
+I3 = flip(I,0);
 
 % rotation function
-%%%I4 = rotation(I, pi/3);
+I4 = rotation(I, pi/3);
 
 %% show image
 figure('name', 'grey scale image'),
 imshow(I2);
-
+figure('name', 'image flipping image');
+imshow(I3);
+figure('name', 'image rotation image');
+imshow(I4);
 %% write image
 % save image for your report
-filename2 = 'test_image.jpg';
+filename2 = 'grey_image.jpg';
 imwrite(I2, filename2);
+filename3 = 'flipping_image.jpg';
+imwrite(I3, filename3);
+filename4 = 'rotation_image.jpg';
+imwrite(I4, filename4);
 
 
 

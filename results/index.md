@@ -4,6 +4,8 @@
 
 ## Overview
 The project is related to two methods of image processing: flipping and rotation operations. To implement these two operations, we write two functions: flip.m and rotation.m. Then we call both functions by lab0_main.m to run the processing in Matlab. Below are the implementation details.
+
+> **function file**  
 > flip.m  
 > rotation.m  
 ## Implementation

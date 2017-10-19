@@ -39,28 +39,44 @@ The project is related to two methods of image processing: flipping and rotation
 		combine two operations (type 0 and type1) mentioned above. For example, **R[1][1]** will be placed at **R_flip[height][width]**, **R[2][3]** at  **R_flip[height-1][width-2]**,..., **R[m][n]** at  **R_flip[height-m+1][width-n+1]**.
 		
 	##### Matlab code:
+	```Matlab
+	%Type 0:
+	for h = 1 : height
+       for w = 1 : width 
+            R_flip(h, w) = R(h,width-w+1);
+            G_flip(h, w) = G(h,width-w+1);
+            B_flip(h, w) = B(h,width-w+1);
+       end
+    end
 	
-	### Results
+	%Type 1:
+	for h = 1 : height
+       	for w = 1 : width 
+            R_flip(h, w) = R(height-h+1,w);
+            G_flip(h, w) = G(height-h+1,w);
+            B_flip(h, w) = B(height-h+1,w);
+       	end
+    end
+	
+	%Type 2:
+	for h = 1 : height
+ 		for w = 1 : width 
+	   		R_flip(h, w) = R(height-h+1,width-w+1);
+            G_flip(h, w) = G(height-h+1,width-w+1);
+            B_flip(h, w) = B(height-h+1,width-w+1);
+       	end
+    end
+	```
+	
+	##### Results
+	
+	type0 | type1 | type2
+	------|-------|-------	
+	<img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/DSC_1182/DSC_1182.JPG width="24%"/> | <img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/DSC_0531/DSC_0531.JPG width="24%"/> | <img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/image/image.jpg width="24%"/>
+	----------------------------------------------------
+	<img src="placeholder.jpg"  width="100%"/>
+	<img src="placeholder.jpg" width="100%"/>
+	<img src="placeholder.jpg" width="100%"/>
 
-		<table border=1>
-		<tr>
-		<td>
-		<img src="placeholder.jpg" width="24%"/>
-		<img src="placeholder.jpg"  width="24%"/>
-		<img src="placeholder.jpg" width="24%"/>
-		<img src="placeholder.jpg" width="24%"/>
-		</td>
-		</tr>
-
-		<tr>
-		<td>
-		<img src="placeholder.jpg" width="24%"/>
-		<img src="placeholder.jpg"  width="24%"/>
-		<img src="placeholder.jpg" width="24%"/>
-		<img src="placeholder.jpg" width="24%"/>
-		</td>
-		</tr>
-
-		</table>
 
 

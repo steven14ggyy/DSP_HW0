@@ -78,8 +78,8 @@ The project is related to two methods of image processing: flipping and rotation
 	
 	_ |type0 | 
 	  :-----:|:-----:|
-	Orignial image|  <img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/image/image.jpg width="70%"/> |
-	Processed image| <img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/image/flipping_image.jpg width="70%"/> | 
+	Orignial image|  <img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/image/image.jpg width="50%"/> |
+	Processed image| <img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/image/flipping_image.jpg width="50%"/> | 
 	
 	 _ |type1| type2 |
 	:-----:|:-------:|:------:|	
@@ -188,12 +188,12 @@ The project is related to two methods of image processing: flipping and rotation
 	
 	_ |rotation angle: π/3 | 
 	  :-----:|:-----:|
-	Orignial image|  <img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/image/image.jpg width=/> |
-	Processed image| <img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/image/rotation_image.jpg width=/> | 
+	Orignial image|  <img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/image/image.jpg width="50%"/> |
+	Processed image| <img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/image/rotation_image.jpg width="50%"/> | 
 	
 	 _ |rotation angle: π/5| rotation angle: π/3 |
 	:-----:|:-------:|:------:|	
-	 Orignial image|<img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/DSC_0531/DSC_0531.JPG /> | <img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/DSC_1182/DSC_1182.JPG />|  
-	 Processed image|<img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/DSC_0531/rotation_image.jpg /> | <img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/DSC_1182/rotation_image.jpg />|  
+	 Orignial image|<img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/DSC_0531/DSC_0531.JPG width="70%"/> | <img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/DSC_1182/DSC_1182.JPG width="70%"/>|  
+	 Processed image|<img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/DSC_0531/rotation_image.jpg width="70%" /> | <img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/DSC_1182/rotation_image.jpg width="70%"/>|  
 
 

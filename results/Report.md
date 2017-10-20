@@ -33,8 +33,10 @@ The project is related to two methods of image processing: flipping and rotation
 	After knowing the type, do the corresponding operations:    
 	* **horizontal flipping (type 0):**   
 	arrange elements of R, G and B upside down horizontally. For example, **R[h][1]** will be placed at **R_flip[h][width]**, **R[h][2]** at  **R_flip[h][width-1]**,..., **R[h][n]** at  **R_flip[h][width-n+1]**.
+	
 	* **vertical flipping (type 1):**    
 	arrange elements of R, G and B upside down vertically. For example, **R[1][w]** will be placed at **R_flip[height][w]**, **R[2][w]** at  **R_flip[height-1][w]**,..., **R[n][w]** at  **R_flip[height-n+1][w]**.
+	
 	* **horizontal+vertical flipping (type 2):**   
 		combine two operations (type 0 and type1) mentioned above. For example, **R[1][1]** will be placed at **R_flip[height][width]**, **R[2][3]** at  **R_flip[height-1][width-2]**,..., **R[m][n]** at  **R_flip[height-m+1][width-n+1]**.
 		

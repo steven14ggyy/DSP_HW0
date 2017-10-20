@@ -139,7 +139,41 @@ The project is related to two methods of image processing: flipping and rotation
          y1 = floor(y_old);
          y2 = ceil(y_old);
 	 ```
-	 Fill the point "black color" if the backward-warping point is outside of the input image. If the point is inside the input image, we calculate weights of above 4 interpolation coordinates and sum them up to get the pixel values. Note that if x1 = x2 or y1 = y2, it means our **"bilinear interpolation"** degenerates into 1-D linear interpolation (w1 = w2 and w3 = w4 in **"x1=x2"** case; w1 = w4 and w2 = w3 in **"y1=y2"** case), so we just set wa = 0 or 1
+	 Fill the point "black color" if the backward-warping point is outside of the input image. If the point is inside the input image, we calculate weights of above 4 interpolation coordinates and sum them up to get the pixel values. Note that if x1=x2 or y1=y2, it means our **"bilinear interpolation"** degenerates into 1-D linear interpolation (w1=w2 and w3=w4 in **"x1=x2"** case; w1=w4 and w2=w3 in **"y1=y2"** case). To avoid calculation errors, we just set wa=0 (or 1, that's the same things as wa=0) or wb=0 (or 1, that's the same things as wb=0).
+	 ```Matlab
+	% step7. 
+        if (x1 >= 1) && (x1 <= width) && (x2 >= 1) && (x2 <= width) && ...
+            (y1 >= 1) && (y1 <= height)&& (y2 >= 1) && (y2 <= height)
+            
+            % step8.
+            if(x1==x2)
+                wa = 0; %or 1, Both are okay!
+            else
+                wa = (x_old - x1)/(x1-x2);
+            end
+            if(y1==y2)
+                wb = 0; %or 1, Both are okay!
+            else
+                wb = (y_old - y1)/(y1-y2);
+            end
+      
+            % step9. calculate weight w1, w2 w3, w4 for 4 neighbor pixels. 
+            w1 = (1-wa)*(1-wb);
+            w2 = wa*(1-wb);
+            w3 = wa*wb;
+            w4 = (1-wa)*wb;
+            
+            % step10. calculate r,g,b with 4 neighbor point and their weight
+            r = double(R(y1,x1))*w1+double(R(y1,x2))*w2+double(R(y2,x2))*w3+double(R(y2,x1))*w4;
+            g = double(G(y1,x1))*w1+double(G(y1,x2))*w2+double(G(y2,x2))*w3+double(G(y2,x1))*w4;
+            b = double(B(y1,x1))*w1+double(B(y1,x2))*w2+double(B(y2,x2))*w3+double(B(y2,x1))*w4;
+         
+        else
+            r = 0;
+            g = 0;
+            b = 0;
+        end
+	 ```
 
 
 

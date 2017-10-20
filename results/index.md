@@ -37,8 +37,6 @@ The project is related to two methods of image processing: flipping and rotation
 	arrange elements of R, G and B upside down vertically. For example, **R[1][w]** will be placed at **R_flip[height][w]**, **R[2][w]** at  **R_flip[height-1][w]**,..., **R[n][w]** at  **R_flip[height-n+1][w]**.
 	* **horizontal+vertical flipping (type 2):**   
 		combine two operations (type 0 and type1) mentioned above. For example, **R[1][1]** will be placed at **R_flip[height][width]**, **R[2][3]** at  **R_flip[height-1][width-2]**,..., **R[m][n]** at  **R_flip[height-m+1][width-n+1]**.
-		<font color="red"> Big  
-		<font color="red">聖誕快樂</font>  
 		
 	##### Matlab code:
 	```Matlab
@@ -78,12 +76,15 @@ The project is related to two methods of image processing: flipping and rotation
 	```
 	##### Results
 	
-	type0 | type1| type2 
-	:-----:|:-------:|:------:	
-	<img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/image/image.jpg width="100%"/> | <img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/DSC_0531/DSC_0531.JPG width="100%"/> | <img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/DSC_1182/DSC_1182.JPG width="100%"/>
-	<img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/image/flipping_image.jpg width="100%"/> | <img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/DSC_0531/flipping_image.jpg width="100%"/> | <img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/DSC_1182/flipping_image.jpg width="100%"/>
+	type0 | 
+	:-----:|
+	<img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/image/image.jpg width="100%"/> |
+	<img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/image/flipping_image.jpg width="100%"/> | 
 	
-	
+	    type1| type2 |
+	:-------:|:------:|	
+	 <img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/DSC_0531/DSC_0531.JPG width="100%"/> | <img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/DSC_1182/DSC_1182.JPG width="100%"/>|  
+	 <img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/DSC_0531/flipping_image.jpg width="100%"/> | <img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/DSC_1182/flipping_image.jpg width="100%"/>|  
 
 
 

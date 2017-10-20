@@ -128,16 +128,16 @@ The project is related to two methods of image processing: flipping and rotation
 	 After getting the new size, we have to find pixel values (R, G and B) to show correct color arrangement on the screen. Use backward-warping, which means shifting and rotationing back to get corresponding color values in the original input image, so we need to shift points back and multiply each cooridinate of each point in the new image with the inverse of the rotation matrix. 
 	 ```Matlab
 	 location_new = [x_new;y_new];
-         location_old = inv(matrix)*(location_new - [x_shift; y_shift]);
+	 location_old = inv(matrix)*(location_new - [x_shift; y_shift]);
 	 x_old = location_old(1,1);
-         y_old = location_old(2,1);
+	 y_old = location_old(2,1);
 	 ```
 	 By bilinear interpolation, we could obtain close right pixel values. Find two integers that sit at the both sides of the point calculated in the previous backward-warping step, so we get 4 interpolation coordinates: **w1(x1, y1)**, **w2(x2, y1)**, **w3(x1, y2)** and **w4(x2, y2)**
 	 ```Matlab
 	 x1 = floor(x_old);
-         x2 = ceil(x_old);
-         y1 = floor(y_old);
-         y2 = ceil(y_old);
+	 x2 = ceil(x_old);
+	 y1 = floor(y_old);
+	 y2 = ceil(y_old);
 	 ```
 	 Fill the point "black color" if the backward-warping point is outside of the input image. If the point is inside the input image, we calculate weights of above 4 interpolation coordinates and sum them up to get the pixel values. Note that if x1=x2 or y1=y2, it means our **"bilinear interpolation"** degenerates into 1-D linear interpolation (w1=w2 and w3=w4 in **"x1=x2"** case; w1=w4 and w2=w3 in **"y1=y2"** case). To avoid calculation errors, we just set wa=0 (or 1, that's the same things as wa=0) or wb=0 (or 1, that's the same things as wb=0).
 	 ```Matlab
@@ -176,6 +176,7 @@ The project is related to two methods of image processing: flipping and rotation
 	 ```
 	 Finally, we divide the pixel values by 255 to convert uint8 type to double type, and return the processed result as the rotation image.
 	 ```Matlab
+	%Convert the data type (uint8 ====> double)
 	R_rot(y_new, x_new) = r/255;
 	G_rot(y_new, x_new) = g/255;
 	B_rot(y_new, x_new) = b/255;
@@ -191,7 +192,7 @@ The project is related to two methods of image processing: flipping and rotation
 	Orignial image|  <img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/image/image.jpg width="50%"/> |
 	Processed image| <img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/image/rotation_image.jpg width="50%"/> | 
 	
-	 _ |rotation angle: π/5| rotation angle: π/3 |
+	 _ |rotation angle: π/5| rotation angle: -π/3 |
 	:-----:|:-------:|:------:|	
 	 Orignial image|<img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/DSC_0531/DSC_0531.JPG width="70%"/> | <img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/DSC_1182/DSC_1182.JPG width="70%"/>|  
 	 Processed image|<img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/DSC_0531/rotation_image.jpg width="70%" /> | <img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/DSC_1182/rotation_image.jpg width="70%"/>|  

@@ -76,15 +76,56 @@ The project is related to two methods of image processing: flipping and rotation
 	```
 	##### Results
 	
-	         |type0 | 
+	_ |type0 | 
 	  :-----:|:-----:|
-	Orignial image|<img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/image/image.jpg width="70%"/> |
-	Processed image|<img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/image/flipping_image.jpg width="70%"/> | 
+	Orignial image|  <img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/image/image.jpg width="70%"/> |
+	Processed image| <img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/image/flipping_image.jpg width="70%"/> | 
 	
-	    type1| type2 |
+	 _ |type1| type2 |
 	:-----:|:-------:|:------:|	
 	 Orignial image|<img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/DSC_0531/DSC_0531.JPG width="70%"/> | <img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/DSC_1182/DSC_1182.JPG width="70%"/>|  
 	 Processed image|<img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/DSC_0531/flipping_image.jpg width="70%"/> | <img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/DSC_1182/flipping_image.jpg width="70%"/>|  
+	 
+2. rotation.m:  
+	 In rotation.m, images will be rotation clockwise by an angle we assign in radian. The function has two arguement: One is an input image we want to process; the other is an angle (unit: radian).  
+	 So same as in flip.m, we get **R**, **G** and **B**, 3 channel pixel values, and the height and width of the input image. Then  calculate locations of the new vertices to determine new image size after rotating. Use a rotation matrix multiplication and find the minimum x and y value, which is how much to shift the rotationed image to the positive axis. Calculate the difference of minimum x and maximum x to get the new width of the new image, and do the same thing on y to get the new height of the new image.  
+	 ```Matlab
+	 % RGB channel
+	R(:,:) = I(:,:,1);
+	G(:,:) = I(:,:,2);
+	B(:,:) = I(:,:,3);
+
+	% get height, width, channel of image
+	[height, width, channel] = size(I);
+
+	%% create new image
+	% step1. record image vertex, and use rotation matrix to get new vertex.
+	matrix = [cos(radius) -sin(radius) ; sin(radius) cos(radius)];
+	% combine four vertices in a matrix: (1,1), (1, width), (height, 1) and (height, width)
+	vertex = [1, width, width, 1; 1, 1, height, height]; 
+	vertex_new = matrix*vertex;
+
+	% step2. find min x, min y, max x, max y, use "min()" & "max()" function is ok
+	min_x = min(vertex_new(1,:)); 
+	min_y = min(vertex_new(2,:));
+	max_x = max(vertex_new(1,:));
+	max_y = max(vertex_new(2,:));
+
+	% step3. consider how much to shift the image to the positive axis
+	x_shift = -min_x;
+	y_shift = -min_y;
+
+	% step4. calculate new width and height, if they are not integer, use
+	% "ceil()" & "floor()" to help get the largest width and height.
+	width_new = ceil(max_x) - floor(min_x);
+	height_new = ceil(max_y) - floor(min_y);
+
+	% step5. initial r,g,b array for the new image
+	R_rot = zeros(height_new, width_new);
+	G_rot = zeros(height_new, width_new);
+	B_rot = zeros(height_new, width_new);
+	 ```
+	 After getting the new size, we have to find pixel values (R, G and B) to show correct color arrangement on the screen. Use backward-warping, which means shifting and rotationing back to get corresponding color values in the original input image, so we need to shift the point back and multiply each cooridinates of the new image with the inverse of the rotation matrix. By bilinear interpolation 
 
 
 

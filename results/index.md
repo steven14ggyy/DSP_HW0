@@ -87,7 +87,7 @@ The project is related to two methods of image processing: flipping and rotation
 	 Processed image|<img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/DSC_0531/flipping_image.jpg width="70%"/> | <img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/DSC_1182/flipping_image.jpg width="70%"/>|  
 	 
 2. rotation.m:  
-	 In rotation.m, images will be rotation clockwise by an angle we assign in radian. The function has two arguement: One is an input image we want to process; the other is an angle (unit: radian).  
+	 In rotation.m, images will be rotation clockwise by an angle we assign in radian. The function has two arguements: One is an input image we want to process; the other is an angle (unit: radian).  
 	 So same as in flip.m, we get **R**, **G** and **B**, 3 channel pixel values, and the height and width of the input image. Then  calculate locations of the new vertices to determine new image size after rotating. Use a rotation matrix multiplication and find the minimum x and y value, which is how much to shift the rotationed image to the positive axis. Calculate the difference of minimum x and maximum x to get the new width of the new image, and do the same thing on y to get the new height of the new image.  
 	 ```Matlab
 	 % RGB channel
@@ -125,7 +125,21 @@ The project is related to two methods of image processing: flipping and rotation
 	G_rot = zeros(height_new, width_new);
 	B_rot = zeros(height_new, width_new);
 	 ```
-	 After getting the new size, we have to find pixel values (R, G and B) to show correct color arrangement on the screen. Use backward-warping, which means shifting and rotationing back to get corresponding color values in the original input image, so we need to shift the point back and multiply each cooridinates of the new image with the inverse of the rotation matrix. By bilinear interpolation 
+	 After getting the new size, we have to find pixel values (R, G and B) to show correct color arrangement on the screen. Use backward-warping, which means shifting and rotationing back to get corresponding color values in the original input image, so we need to shift points back and multiply each cooridinate of each point in the new image with the inverse of the rotation matrix. 
+	 ```Matlab
+	 location_new = [x_new;y_new];
+         location_old = inv(matrix)*(location_new - [x_shift; y_shift]);
+	 x_old = location_old(1,1);
+         y_old = location_old(2,1);
+	 ```
+	 By bilinear interpolation, we could obtain close right pixel values. Find two integers that sit at the both sides of the point calculated in the previous backward-warping step, so we get 4 interpolation coordinates: **w1(x1, y1)**, **w2(x2, y1)**, **w3(x1, y2)** and **w4(x2, y2)**
+	 ```Matlab
+	 x1 = floor(x_old);
+         x2 = ceil(x_old);
+         y1 = floor(y_old);
+         y2 = ceil(y_old);
+	 ```
+	 Fill the point "black color" if the backward-warping point is outside of the input image. If the point is inside the input image, we calculate weights of above 4 interpolation coordinates and sum them up to get the pixel values. Note that if x1 = x2 or y1 = y2, it means our **"bilinear interpolation"** degenerates into 1-D linear interpolation (w1 = w2 and w3 = w4 in **"x1=x2"** case; w1 = w4 and w2 = w3 in **"y1=y2"** case), so we just set wa = 0 or 1
 
 
 

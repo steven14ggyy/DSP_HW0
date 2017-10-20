@@ -176,12 +176,10 @@ The project is related to two methods of image processing: flipping and rotation
 	 ```
 	 Finally, we divide the pixel values by 255 to convert uint8 type to double type, and return the processed result as the rotation image.
 	 ```Matlab
-	 R_rot(y_new, x_new) = r/255;
-         G_rot(y_new, x_new) = g/255;
-         B_rot(y_new, x_new) = b/255;
-         ...
-	 ...
-	 % save R_rot, G_rot, B_rot to output image
+	R_rot(y_new, x_new) = r/255;
+	G_rot(y_new, x_new) = g/255;
+	B_rot(y_new, x_new) = b/255;
+	% save R_rot, G_rot, B_rot to output image
 	I_rot(:,:,1) = R_rot;
 	I_rot(:,:,2) = G_rot;
 	I_rot(:,:,3) = B_rot;
@@ -190,12 +188,12 @@ The project is related to two methods of image processing: flipping and rotation
 	
 	_ |rotation angle: π/3 | 
 	  :-----:|:-----:|
-	Orignial image|  <img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/image/image.jpg width="70%"/> |
-	Processed image| <img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/image/rotation_image.jpg width="70%"/> | 
+	Orignial image|  <img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/image/image.jpg width=/> |
+	Processed image| <img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/image/rotation_image.jpg width=/> | 
 	
-	 _ |rotation angle: -π/2| rotation angle: π/3 |
+	 _ |rotation angle: π/5| rotation angle: π/3 |
 	:-----:|:-------:|:------:|	
-	 Orignial image|<img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/DSC_0531/DSC_0531.JPG width="70%"/> | <img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/DSC_1182/DSC_1182.JPG width="70%"/>|  
-	 Processed image|<img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/DSC_0531/rotation_image.jpg width="70%"/> | <img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/DSC_1182/rotation_image.jpg width="70%"/>|  
+	 Orignial image|<img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/DSC_0531/DSC_0531.JPG /> | <img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/DSC_1182/DSC_1182.JPG />|  
+	 Processed image|<img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/DSC_0531/rotation_image.jpg /> | <img src=https://github.com/steven14ggyy/DSP_Lab_HW0/blob/master/results/DSC_1182/rotation_image.jpg />|  
 
 

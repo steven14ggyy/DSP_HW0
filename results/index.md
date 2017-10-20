@@ -38,6 +38,7 @@ The project is related to two methods of image processing: flipping and rotation
 	* **horizontal+vertical flipping (type 2):**   
 		combine two operations (type 0 and type1) mentioned above. For example, **R[1][1]** will be placed at **R_flip[height][width]**, **R[2][3]** at  **R_flip[height-1][width-2]**,..., **R[m][n]** at  **R_flip[height-m+1][width-n+1]**.
 		<font color="red"> Big  
+		<font color="red">聖誕快樂</font>  
 		
 	##### Matlab code:
 	```Matlab
